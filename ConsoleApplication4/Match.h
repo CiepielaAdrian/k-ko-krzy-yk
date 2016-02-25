@@ -14,6 +14,6 @@ public:
 	bool ifDraw(Board const &board);
 	int fieldNrToNumericKeybord(int fieldNumber);
 	void validateIntigerInput(int &input);
-	void validateFieldNumber(int &input, Board &board);
+	void validateFieldNumber(int &input, Board const &board);
 };
 

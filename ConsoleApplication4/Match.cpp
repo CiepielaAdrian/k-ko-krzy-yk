@@ -109,6 +109,7 @@ int Match::fieldNrToNumericKeybord(int fieldNumber)
 
 void Match::validateIntigerInput(int &input)
 {
+	
 	while (1)
 	{
 		if (std::cin.fail())							// no extraction took place
@@ -121,20 +122,24 @@ void Match::validateIntigerInput(int &input)
 			}
 
 			std::cin.ignore(1000, '\n');				// clear out any additional input from the stream
-			if (std::cin.gcount() > 1)					// if we cleared out more than one additional character
+			if (std::cin.gcount() > 1) {				// if we cleared out more than one additional character
+				std::cout << "Nieprawidlowe pole! Wybierz pole jeszcze raz: " << std::endl;
+				std::cin >> input;
 				continue;								// we'll consider this input to be invalid
+			}
 
 			break;
 	}
 }
 
-void Match::validateFieldNumber(int &input, Board &board)
+void Match::validateFieldNumber(int &input, Board const &board)
 {
 	validateIntigerInput(input);
 
 	int numericKey = fieldNrToNumericKeybord(input);
 
-	while (board.board[numericKey] != ' ') {
+	while (board.board[numericKey] != ' ') 
+	{
 		if (numericKey < 1 || numericKey > 9)
 			std::cout << "Nieprawidlowe pole! Wybierz pole jeszcze raz: " << std::endl;
 		else
