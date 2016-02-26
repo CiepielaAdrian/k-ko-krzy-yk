@@ -1,17 +1,34 @@
 #include "Match.h"
 #include "Board.h"
 #include "Menu.h"
+#include "Player.h"
 
 
-Match::Match(Board &board) : player('x')
+Match::Match(Board &board,  Player &player1,  Player &player2)
 {
 	board.drawBoard();
+	while (1) 
+	{
+		activePlayer = player1.getSymbol();
+		player1.makeMove(board);
+		if (ifEndOfGame(board)) 
+			break;
+
+		activePlayer = player2.getSymbol();
+		player2.makeMove(board);
+		if (ifEndOfGame(board))
+			break;
+	}	
 }
+
+
+
 
 Match::~Match()
 {
 }
 
+/*
 void Match::move(Board &board)
 {
 	if (player == 'o')
@@ -31,10 +48,11 @@ void Match::move(Board &board)
 	system("cls");
 	board.drawBoard();
 }
+*/
 
 bool Match::ifEndOfGame(Board const &board) {
 	if (Match::ifWin(board)) {
-		std::cout << "Wygrywa gracz: " << player << std::endl << std::endl;
+		std::cout << "Wygrywa gracz: " << activePlayer << std::endl << std::endl;
 		Menu::actionChoice();
 		return true;
 	}
@@ -108,8 +126,7 @@ int Match::fieldNrToNumericKeybord(int fieldNumber)
 }
 
 void Match::validateIntigerInput(int &input)
-{
-	
+{	
 	while (1)
 	{
 		if (std::cin.fail())							// no extraction took place

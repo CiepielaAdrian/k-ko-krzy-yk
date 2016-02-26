@@ -4,8 +4,10 @@ using namespace std;
 
 Board::Board()
 {
-	for (int i = 0; i < 9; i++)
-		board[i] = ' ';
+	memset(board,' ', 9);
+
+	//for (int i = 0; i < 9; i++)
+	//	board[i] = ' ';
 }
 
 
