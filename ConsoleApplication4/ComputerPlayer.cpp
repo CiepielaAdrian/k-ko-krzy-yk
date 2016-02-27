@@ -198,8 +198,9 @@ void ComputerPlayer::makeMove(Board & board)
 
 	if (nrOfOccupiedFields == 2) {
 		if (board.board[4] == ' ') {		//free middle of board
+
 			if (board.board[0] == symbol) {
-				if (board.board[1] == ' ') {
+				if (board.board[1] == ' ' && board.board[2] == ' ') {
 					board.board[2] = symbol;
 					return;
 				}
@@ -209,7 +210,7 @@ void ComputerPlayer::makeMove(Board & board)
 				}
 			}
 			if (board.board[2] == symbol) {
-				if (board.board[1] == ' ') {
+				if (board.board[1] == ' ' && board.board[0] == ' ') {
 					board.board[0] = symbol;
 					return;
 				}
@@ -219,7 +220,7 @@ void ComputerPlayer::makeMove(Board & board)
 				}
 			}
 			if (board.board[6] == symbol) {
-				if (board.board[7] == ' ') {
+				if (board.board[7] == ' ' && board.board[8] == ' ') {
 					board.board[8] = symbol;
 					return;
 				}
@@ -228,8 +229,8 @@ void ComputerPlayer::makeMove(Board & board)
 					return;
 				}
 			}
-			if (board.board[8] == symbol) {
-				if (board.board[5] == ' ') {
+			if (board.board[8] == symbol ) {
+				if (board.board[5] == ' ' && board.board[2] == ' ') {
 					board.board[2] = symbol;
 					return;
 				}
