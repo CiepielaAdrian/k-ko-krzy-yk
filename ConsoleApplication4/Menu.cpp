@@ -64,7 +64,22 @@ void Menu::MultiPlayer()
 
 void Menu::SinglePlayer() 
 {
-
+	char whoStarts, symbol;
+	cout << "Wybierz kto rozpoczyna (k - komputer, g - gracz):" << endl;
+	cin >> whoStarts;
+	cout << "Wybierz swoj symbol (o - kolko, x - krzyzyk):" << endl;
+	cin >> symbol;
+	ValidateCharInput(symbol);
+	system("cls");
+	HumanPlayer player1(symbol);
+	ComputerPlayer player2(symbol);
+	Board board;
+	
+	if (whoStarts == 'k') {
+		Match match(board, player2, player1);
+	}
+	else
+		Match match(board, player1, player2);
 }
 
 void Menu::ValidateCharInput(char &input)
@@ -74,14 +89,12 @@ void Menu::ValidateCharInput(char &input)
 		std::cin.ignore(1000, '\n');				// clear out any additional input from the stream
 		if (std::cin.gcount() > 1) {				// if we cleared out more than one additional character
 			std::cout << "Nieprawidlowy symbol! Wybierz symbol jeszcze raz. " << std::endl;
-			cout << "Podaj symbol pierwszego gracza (o - kolko, x - krzyzyk):" << endl;
 			std::cin >> input;
 			continue;								// we'll consider this input to be invalid
 		}
 
 		if (input != 'o' && input != 'x') {
 			std::cout << "Nieprawidlowy symbol! Wybierz symbol jeszcze raz. " << std::endl;
-			cout << "Podaj symbol pierwszego gracza (o - kolko, x - krzyzyk):" << endl;
 			std::cin >> input;
 			continue;
 		}

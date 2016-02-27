@@ -11,11 +11,15 @@ Match::Match(Board &board,  Player &player1,  Player &player2)
 	{
 		activePlayer = player1.getSymbol();
 		player1.makeMove(board);
+		system("cls");
+		board.drawBoard();
 		if (ifEndOfGame(board)) 
 			break;
 
 		activePlayer = player2.getSymbol();
 		player2.makeMove(board);
+		system("cls");
+		board.drawBoard();
 		if (ifEndOfGame(board))
 			break;
 	}	
