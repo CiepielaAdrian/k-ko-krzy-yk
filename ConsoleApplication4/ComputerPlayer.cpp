@@ -1,7 +1,7 @@
 #include "ComputerPlayer.h"
 #include <ctime>
 #include <windows.h>
-//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
 
 ComputerPlayer::ComputerPlayer(char humanPlayerSymbol)
 {
