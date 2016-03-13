@@ -2,16 +2,6 @@
 #include <ctime>
 #include <windows.h>
 
-//
-//a
-//sda
-//das
-//das
-//d
-//asd
-//asd
-//
-
 ComputerPlayer::ComputerPlayer(char humanPlayerSymbol)
 {
 	symbolChoice(humanPlayerSymbol);
