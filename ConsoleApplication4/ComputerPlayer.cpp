@@ -2,6 +2,16 @@
 #include <ctime>
 #include <windows.h>
 
+//
+//a
+//sda
+//das
+//das
+//d
+//asd
+//asd
+//
+
 ComputerPlayer::ComputerPlayer(char humanPlayerSymbol)
 {
 	symbolChoice(humanPlayerSymbol);
@@ -217,7 +227,7 @@ void ComputerPlayer::makeMove(Board & board)
 				else {
 					board.board[8] = symbol;
 					return;
-				}
+				} 
 			}
 			if (board.board[6] == symbol) {
 				if (board.board[7] == ' ' && board.board[8] == ' ') {
